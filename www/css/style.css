@@ -1,0 +1,12 @@
+.bar-energized {
+    background: #feae1b !important;
+}
+
+#login {
+    clear:both;
+    zoom:1;
+    background-image:-webkit-linear-gradient(-90deg,#feae1b 0%,#fdc868 100%);
+    background-image:-moz-linear-gradient(-90deg,#feae1b 0%,#fdc868 100%);
+    background-image:-o-linear-gradient(-90deg,#feae1b 0%,#fdc868 100%);
+    background-image:-ms-linear-gradient(-90deg,#feae1b 0%,#fdc868 100%);
+}
