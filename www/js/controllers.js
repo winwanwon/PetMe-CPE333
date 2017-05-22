@@ -77,7 +77,34 @@ angular.module('starter.controllers', ['ionic'])
 
 .controller('BookmarkCtrl', function($scope) {})
 
-.controller('NewCtrl', function($scope) {})
+.controller('NewCtrl', function($scope, $http, $ionicPopup, $state) {
+  $scope.post = {};
+
+  $scope.addPost = function(){
+    $http({
+        url: 'http://www.winwanwon.in.th/petme/add_post.php',
+        method: "POST",
+        data: { 'PetName': $scope.post.name,
+                'Breed': $scope.post.breed,
+                'Age': $scope.post.age,
+                'Description': $scope.post.description,
+                'Contact': $scope.post.contact,
+                'Need': $scope.post.need,
+                'Photo': 'http://placekitten.com/g/500/500'
+              },
+        headers: {'Content-Type': 'application/json'},
+     }).success(function(data, status, headers, config) {
+        console.log(data);
+        var alertPopup = $ionicPopup.alert({
+          title: 'Post Success!',
+          okType: 'button-balanced'
+        });
+        alertPopup.then(function(res) {
+          $state.go("tab.dash")
+        });
+     });
+  }
+})
 
 .controller('HelpedCtrl', function($scope) {})
 
