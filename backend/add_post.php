@@ -14,7 +14,4 @@
     
     if($petname&&$breed&&$age&&$description&&$contact&&$need&&$photo)
     mysqli_query($con, "INSERT INTO post (PetName,Breed,Age,Description,Contact,Need,Photo) VALUES ('$petname', '$breed',' $age', '$description', '$contact', '$need', '$photo')") or die(mysqli_error($con));
-
-
-
 ?>
