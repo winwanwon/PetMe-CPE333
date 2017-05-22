@@ -2,8 +2,61 @@
   <ion-modal-view>
     <ion-header-bar class="bar bar-header bar-energized">
         <h1 class="title">Sign Up</h1>
+        <a class="button button-icon icon ion-ios-close-empty" ng-click="closeModal()"></a>
     </ion-header-bar>
-    <ion-content class="padding">
-      Hello!
+    <ion-content>
+            <div class="list">
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">Username</span>
+                <input type="text" placeholder="Username">
+              </label>
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">Password</span>
+                <input type="password" placeholder="8-24 Characters">
+              </label>
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">Confirm Password</span>
+                <input type="password" placeholder="Confirm Password">
+              </label>
+
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">Email</span>
+                <input type="text" placeholder="youremail@example.com">
+              </label>
+
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">Display name</span>
+                <input type="text" placeholder="3-16 Characters">
+              </label>
+
+
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">Date of Birth</span>
+                <input type="text" placeholder="3-16 Characters">
+              </label>
+
+            <label class="item item-input item-select">
+              <div class="input-label">
+                Sex
+              </div>
+              <select>
+                <option>Male</option>
+                <option>Female</option>
+              </select>
+            </label>
+            <ion-list>
+
+              <ion-checkbox>Interested in Dog</ion-checkbox>
+              <ion-checkbox>Interested in Cat</ion-checkbox>
+
+            </ion-list>
+
+            </div>
+            
+            <div class="padding">
+              <button class="button button-block button-outline button-positive">
+                Sign Up
+              </button>
+            </div>
     </ion-content>
   </ion-modal-view>
