@@ -1,18 +1,26 @@
 angular.module('starter.controllers', ['ionic'])
 
 
-.controller('LoginCtrl', function($scope, $http, $state, $ionicModal) {
+.controller('LoginCtrl', function($scope, $http, $state, $ionicModal, $ionicPopup) {
+
+  // LOGIN API
   $scope.login = function(){
      $http({
-        url: '',
+        url: 'http://www.winwanwon.in.th/petme/login_check.php',
         method: "POST",
-        data: {"username": "winwanwon", "password":"8747cd155b2b655f87bc142ba2af63465a973ceb"},
-        timeout: 5000
+        data: { 'username': $scope.login.username,
+                'password': $scope.login.password,
+              },
+        headers: {'Content-Type': 'application/json'},
      }).success(function(data, status, headers, config) {
-        $scope.data = data;
-        console.log(data);
+       if(/success/.test(data)){
+          $state.go("tab.dash");
+        } else {
+          var alertPopup = $ionicPopup.alert({
+            title: 'Incorrect Username or Password'
+          });
+        }
      });
-     $state.go('tab.dash');
   }; 
 
   $ionicModal.fromTemplateUrl('templates/register.html', {
@@ -39,29 +47,33 @@ angular.module('starter.controllers', ['ionic'])
   $scope.$on('modal.removed', function() {
     // Execute action
   });
+
+  $scope.regis = {};
+
+  $scope.signUp = function(){
+    $http({
+        url: 'http://www.winwanwon.in.th/petme/register.php',
+        method: "POST",
+        data: { 'username': $scope.regis.regis_username,
+                'password': $scope.regis.regis_password,
+                'password_con': $scope.regis.regis_password_con,
+                'email': $scope.regis.email,
+                'firstname': $scope.regis.firstname,
+                'lastname': $scope.regis.lastname,
+                'displayname': $scope.regis.displayname,
+                'dob': $scope.regis.dob,
+                'sex': $scope.regis.sex,
+                'likedogcat': $scope.regis.likedogcat
+              },
+        headers: {'Content-Type': 'application/json'},
+     }).success(function(data, status, headers, config) {
+        $scope.modal.hide();
+        console.log(data);
+     });
+  }
 })
 
 .controller('DashCtrl', function($scope) {})
-
-/*.controller('ChatsCtrl', function($scope, Chats) {
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
-
-  $scope.chats = Chats.all();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
-  };
-})
-
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
-})
-*/
 
 .controller('BookmarkCtrl', function($scope) {})
 
