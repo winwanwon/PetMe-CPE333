@@ -1,45 +1,26 @@
 <ion-view view-title="<img src='img/logo.png' style='height: 35px; margin-top: 5px;'>">
   <ion-content>
     <div class="list">
+    <div ng-repeat="post in posts">
+      <div class="item item-avatar">
+        <img src="http://placekitten.com/g/150/150">
+        <h2>{{post.PetName}}</h2>
+        <p>{{post.timestamp}}</p>
+      </div>
 
-    <div class="item item-avatar">
-      <img src="http://placekitten.com/g/150/150">
-      <h2>nn.namelesz</h2>
-      <p>May 18 at 10:25pm</p>
+      <div class="item item-image">
+        <img ng-src="{{post.Photo}}">
+      </div>
+
+      <a class="item item-icon-right" href="#">
+        <i class="icon ion-ios-bookmarks-outline" style="margin-right: 40px;"></i>
+        <i class="icon ion-android-favorite assertive" ></i>
+        <h2>{{post.Breed}} / Age: {{post.Age}}</h2>
+        <p>
+          {{post.Description}} / Need: {{post.Need}}
+        </p>
+      </a>
     </div>
-
-    <div class="item item-image">
-      <img src="http://placekitten.com/g/500/500">
-    </div>
-
-    <a class="item item-icon-right" href="#">
-      <i class="icon ion-ios-bookmarks-outline" style="margin-right: 40px;"></i>
-      <i class="icon ion-android-favorite assertive" ></i>
-      <h2>Hachiko (Shiba Inu) <i class="ion-male positive"></i></h2>
-      <p>
-        Age: 2 years 1 month
-      </p>
-    </a>
-    <!--- NEW ITEM -->
-     <div class="item item-avatar">
-      <img src="http://placekitten.com/g/150/150">
-      <h2>krit.dbf</h2>
-      <p>May 15 at 11:00am</p>
-    </div>
-
-    <div class="item item-image">
-      <img src="http://placekitten.com/g/500/500">
-    </div>
-
-    <a class="item item-icon-right" href="#">
-      <i class="icon ion-ios-bookmarks-outline" style="margin-right: 40px;"></i>
-      <i class="icon ion-android-favorite assertive" ></i>
-      <h2>Hachiko (Shiba Inu) <i class="ion-male positive"></i></h2>
-      <p>
-        Age: 2 years 1 month
-      </p>
-    </a>
-  </div>
 
   </ion-content>
 </ion-view>

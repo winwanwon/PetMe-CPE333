@@ -73,7 +73,16 @@ angular.module('starter.controllers', ['ionic'])
   }
 })
 
-.controller('DashCtrl', function($scope) {})
+.controller('DashCtrl', function($scope, $http) {
+  $http({
+        url: 'http://www.winwanwon.in.th/petme/get_post.php',
+        method: "GET",
+        headers: {'Content-Type': 'application/json'}
+     }).success(function(data, status, headers, config) {
+        console.log(data)
+        $scope.posts = data;
+     });
+})
 
 .controller('BookmarkCtrl', function($scope) {})
 
