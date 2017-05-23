@@ -8,53 +8,65 @@
             <div class="list">
               <label class="item item-input item-stacked-label">
                 <span class="input-label">Username</span>
-                <input type="text" placeholder="Username">
+                <input type="text" ng-model="regis.regis_username" placeholder="Username">
               </label>
               <label class="item item-input item-stacked-label">
                 <span class="input-label">Password</span>
-                <input type="password" placeholder="8-24 Characters">
+                <input type="password" ng-model="regis.regis_password" placeholder="8-24 Characters">
               </label>
               <label class="item item-input item-stacked-label">
                 <span class="input-label">Confirm Password</span>
-                <input type="password" placeholder="Confirm Password">
+                <input type="password" ng-model="regis.regis_password_con" placeholder="Confirm Password">
               </label>
 
               <label class="item item-input item-stacked-label">
                 <span class="input-label">Email</span>
-                <input type="text" placeholder="youremail@example.com">
+                <input type="email" ng-model="regis.email" placeholder="youremail@example.com">
               </label>
 
               <label class="item item-input item-stacked-label">
                 <span class="input-label">Display name</span>
-                <input type="text" placeholder="3-16 Characters">
+                <input type="text" ng-model="regis.displayname" placeholder="3-16 Characters">
               </label>
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">First name</span>
+                <input type="text" ng-model="regis.firstname" placeholder="3-16 Characters">
+              </label>
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">Last name</span>
+                <input type="text" ng-model="regis.lastname" placeholder="3-16 Characters">
+              </label>
+
 
 
               <label class="item item-input item-stacked-label">
                 <span class="input-label">Date of Birth</span>
-                <input type="text" placeholder="3-16 Characters">
+                <input type="date" ng-model="regis.dob" placeholder="3-16 Characters">
               </label>
 
             <label class="item item-input item-select">
               <div class="input-label">
                 Sex
               </div>
-              <select>
-                <option>Male</option>
-                <option>Female</option>
+              <select ng-model="regis.sex">
+                <option value="M">Male</option>
+                <option value="F">Female</option>
               </select>
             </label>
-            <ion-list>
-
-              <ion-checkbox>Interested in Dog</ion-checkbox>
-              <ion-checkbox>Interested in Cat</ion-checkbox>
-
-            </ion-list>
-
+            <label class="item item-input item-select">
+              <div class="input-label">
+                Interested Pet
+              </div>
+              <select ng-model="regis.likedogcat">
+                <option value="D">Dog</option>
+                <option value="C">Cat</option>
+                <option value="B">Dog and Cat</option>
+              </select>
+            </label>
             </div>
             
             <div class="padding">
-              <button class="button button-block button-outline button-positive">
+              <button ng-click="signUp()" class="button button-block button-outline button-positive">
                 Sign Up
               </button>
             </div>

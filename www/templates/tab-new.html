@@ -15,12 +15,8 @@
                 </div>
               </div>
               <label class="item item-input ">
-                <span class="input-label">Post Details</span>
-                <input type="text" placeholder="">
-              </label>
-              <label class="item item-input ">
                 <span class="input-label">Pet Name</span>
-                <input type="text" placeholder="">
+                <input type="text" ng-model="post.name" placeholder="">
               </label>
 
 
@@ -28,7 +24,7 @@
                   <div class="input-label">
                     Breed
                   </div>
-                  <select>
+                  <select ng-model="post.breed">
                     <option>Siberian Husky (dog)</option>
                     <option>Pug (dog)</option>
                     <option>Shiba Inu (dog)</option>
@@ -41,22 +37,22 @@
 
               <label class="item item-input ">
                 <span class="input-label">Ages</span>
-                <input type="text" placeholder="">
+                <input ng-model="post.age" type="number" placeholder="">
               </label>
               <label class="item item-input ">
                 <span class="input-label">Description</span>
-                <input type="text" placeholder="">
+                <input ng-model="post.description" type="text" placeholder="">
               </label>
               <label class="item item-input ">
                 <span class="input-label">Contact</span>
-                <input type="text" placeholder="">
+                <input ng-model="post.contact" type="text" placeholder="">
               </label>
 
               <label class="item item-input item-select">
                 <div class="input-label">
                   Needs
                 </div>
-                <select>
+                <select ng-model="post.need">
                   <option selected>Money</option>
                   <option >Blood</option>
                   <option >Things</option>
@@ -78,7 +74,7 @@
               </ul>
 
             </div>
-            <button class="button button-block button-outline button-positive">
+            <button ng-click="addPost()" class="button button-block button-outline button-positive">
               Submit
             </button>
   </ion-content>

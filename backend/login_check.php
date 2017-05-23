@@ -1,13 +1,19 @@
-<?php 
-include "config.php";
-$username = $_POST["username"];
-$password = sha1($_POST["password"]);
-$query = mysqli_query($con, "SELECT * FROM user WHERE username='$username' AND password='$password");
-$result = mysqli_fetch_array($query, MYSQLI_ASSOC);
-if($result){
-    echo "1";
-} else {
-    echo "0";
-}
+<?php
+    require "config.php";
 
+    $json = file_get_contents('php://input');
+    $obj = json_decode($json);
+    var_dump($obj);
+
+    $username = $obj->username;
+    $password = sha1($obj->password);
+
+    $query = mysqli_query($con, "SELECT * FROM user WHERE UserName='$username' AND Password='$password'");
+    $result = mysqli_fetch_array($query, MYSQLI_ASSOC);
+    if($result){
+        echo "success";
+    } else {
+        echo "failed";
+    }
+    
 ?>
